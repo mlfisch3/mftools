@@ -1,7 +1,10 @@
 import quandl
+import os
+from dotenv import load_dotenv
 
-quandl.ApiConfig.api_key = "71iYebx-UNhJtpcUiBuM"
+load_dotenv()  # Expects .env file containing QUANDL_API_KEY
 
+quandl.ApiConfig.api_key = os.getenv('QUANDL_API_KEY')
 
 # get WTI Crude Oil Price from the US Dept of Energy:
 data = quandl.get("EIA/PET_RWTC_D")
